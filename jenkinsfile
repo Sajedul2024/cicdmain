@@ -27,7 +27,7 @@ pipeline {
 
         stage("BUILD DOCKER IMAGES"){
             steps{
-                sh'docker build --no-cache -t ${CLIENT_APP_IMAGE}:${IMAGE_TAG}  .'   
+                sh'docker build --no-cache -t ${CLIENT_APP_IMAGE}:${IMAGE_TAG} -t ${CLIENT_APP_IMAGE}:latest .'   
             }
         }
 
@@ -38,7 +38,8 @@ pipeline {
                     sh'echo ${PASSWORD} | docker login --username ${USER_NAME} --password-stdin'
 
                     sh'docker push ${CLIENT_APP_IMAGE}:${IMAGE_TAG}'
-                
+                    sh'docker push ${CLIENT_APP_IMAGE}:latest'
+
                     sh'docker logout'
                 }
             }
