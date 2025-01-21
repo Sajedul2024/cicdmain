@@ -7,7 +7,7 @@ pipeline {
         GIT_REPO = "https://github.com/Sajedul2024/cicdmain.git"
         CLIENT_APP_NAME = "demo_frontend"
         CLIENT_APP_IMAGE = "${DOCKERHUB_USERNAME}/${CLIENT_APP_NAME}"
-        CONFIG_PROJECT_NAME = "demo_config"
+        CONFIG_PROJECT_NAME = "demo_config2"
      }
      
     stages {
@@ -38,7 +38,7 @@ pipeline {
                     sh'echo ${PASSWORD} | docker login --username ${USER_NAME} --password-stdin'
 
                     sh'docker push ${CLIENT_APP_IMAGE}:${IMAGE_TAG}'
-                    
+                
                     sh'docker logout'
                 }
             }
