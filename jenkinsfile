@@ -7,7 +7,7 @@ pipeline {
         GIT_REPO = "https://github.com/Sajedul2024/cicdmain.git"
         CLIENT_APP_NAME = "demo_frontend"
         CLIENT_APP_IMAGE = "${DOCKERHUB_USERNAME}/${CLIENT_APP_NAME}"
-        CONFIG_PROJECT_NAME = "demo_config2"
+        CONFIG_PROJECT_NAME = "demo_config"
      }
      
     stages {
